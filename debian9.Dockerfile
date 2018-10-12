@@ -10,7 +10,7 @@ RUN apt-get update && \
   mkdir -p /tool && \
 	cd /tool && \
 	wget --no-check-certificate http://ie.technion.ac.il/~ofers/HCSP/hcsp-1.3.0-x86_64.tar.xz && \
-	tar -xJf hcsp-1.3.0-x86_64.tar.xz #&& \
+	tar -xJf hcsp-1.3.0-x86_64.tar.xz && \
 	mv hcsp-1.3.0-x86_64/hcsp-1.3.0-x86_64 haifacsp && \
 	rm -rf hcsp-1.3.0-x86_64.tar.xz hcsp-1.3.0-x86_64 && \
 	cd haifacsp && \
