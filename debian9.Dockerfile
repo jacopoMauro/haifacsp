@@ -7,17 +7,17 @@ RUN apt-get update && \
  		unzip \
  		xz-utils && \
 	rm -rf /var/lib/apt/lists/* && \
-  mkdir -p /tool && \
+  mkdir /tool && \
 	cd /tool && \
 	wget --no-check-certificate http://ie.technion.ac.il/~ofers/HCSP/hcsp-1.3.0-x86_64.tar.xz && \
 	tar -xJf hcsp-1.3.0-x86_64.tar.xz && \
-	mv hcsp-1.3.0-x86_64/hcsp-1.3.0-x86_64 haifacsp && \
-	rm -rf hcsp-1.3.0-x86_64.tar.xz hcsp-1.3.0-x86_64 && \
+	mv hcsp-1.3.0-x86_64 haifacsp && \
+	rm -rf hcsp-1.3.0-x86_64.tar.xz && \
 	cd haifacsp && \
 	wget --no-check-certificate http://strichman.net.technion.ac.il/files/2016/07/hcsp-mzn-lib.tar_.zip && \
 	unzip hcsp-mzn-lib.tar_.zip && \
 	mv hcsp-mzn-lib.tar mzn-lib && \
-	rm -rf mzn-lib/hcsp-mzn-lib.tar mzn-lib/hcsp-mzn-lib.zip ../hcsp-mzn-lib.tar_.zip && \
+	rm -rf mzn-lib/hcsp-mzn-lib* ../hcsp-mzn-lib.tar_.zip && \
 	mv hcsp.big fzn-haifacsp
 	
 ENV PATH "$PATH:/tool/haifacsp/"
