@@ -18,7 +18,10 @@ RUN apt-get update && \
 	unzip hcsp-mzn-lib.tar_.zip && \
 	mv hcsp-mzn-lib.tar mzn-lib && \
 	rm -rf mzn-lib/hcsp-mzn-lib* ../hcsp-mzn-lib.tar_.zip && \
-	mv hcsp.big fzn-haifacsp
+	echo '#!/bin/bash\n\
+HERE=`dirname "$(readlink -f ${BASH_SOURCE[0]})"`\n\
+$HERE/hcsp.big -F fzn "$@"' > /tool/haifacsp/fzn-haifacsp && \
+	chmod 700 /tool/haifacsp/fzn-haifacsp
 	
 ENV PATH "$PATH:/tool/haifacsp/"
 
